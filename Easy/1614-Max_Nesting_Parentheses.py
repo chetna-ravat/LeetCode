@@ -15,6 +15,7 @@ class Solution:
                 highest = depth    
         return highest
 
+#################  Test Case ##############
 
 s = "(1+(2*3)+((8)/4))+1"  
 t = Solution()
