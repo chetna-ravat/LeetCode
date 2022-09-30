@@ -40,6 +40,31 @@ class Solution(object):
             else:
                 d[nums[i]] = i
 
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        l = list()
+        for i in range (0, len(nums)):
+            l.append((nums[i], i))
+
+    #   Using Bubble sort algorithm to sort the array 
+
+        for k in range (1, len(l)):
+            for j in range (0, len(l)- k):
+                if l[j][0]> l[j+1][0]:
+                    swap = l[j]
+                    l[j] = l[j+1]
+                    l[j+1] = swap
+        st = 0
+        end = len(l)-1
+        while st < end :
+            if l[st][0] + l[end][0] == target:
+                return l[st][1], l[end][1]
+            
+            elif l[st][0] + l[end][0] > target:
+                end -= 1
+                
+            elif l[st][0] + l[end][0] < target:
+                st += 1
+
 
 s = Solution()
 assert [0,1] == s.twoSum([2,7,11,15], 9)
