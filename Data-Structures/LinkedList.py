@@ -114,7 +114,7 @@ class Linkedlist():
         while curr.next != None:
             prev = curr
             curr = curr.next
-        # below condition deltes the last remaining node
+        # below condition deletes the last remaining node
         if prev == None:
             self.head = None
         else:
@@ -132,6 +132,19 @@ class Linkedlist():
         self.head = q
         return self.head
 
+    def recursiveReverse(self):
+        self.head = self.reversee(self.head)
+        return self.head
+    
+    def reversee(self, curr, prev = None):
+        if curr == None:
+            return prev
+        else:
+            head = self.reversee(curr.next, curr)
+            curr.next = prev
+            return head
+
+        
     def print(self):
 
         if self.head == None:
@@ -142,7 +155,6 @@ class Linkedlist():
             print(curr.data, " --> ", end ="")
             curr = curr.next
         print("None")
-
 
     def printRecurse(self):
         self.printrecursive(self.head)
@@ -177,8 +189,7 @@ result.insert(15,3)
 result.insertAtEnd(23)
 result.insertInSortedList(50)
 result.printRecurse()
-x = result.reverseLinkedList()
-
+result.recursiveReverse()
 result.printRecurse()
 # result.printrecursive()
 
