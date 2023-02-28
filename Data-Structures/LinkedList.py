@@ -1,7 +1,7 @@
 
-# The variables defined under constructer are accessible to all the func(methods)in the class. 
+# The variables defined under constructor are accessible to all the func(methods)in the class. 
 # we access them using self.
-
+from .LinkedListUtil import printRecursive
 
 class Node():
     def __init__(self, data, next= None):
@@ -13,6 +13,8 @@ class Linkedlist():
     def __init__(self):
         self.head = None
 
+    def getHead(self):
+        return self.head
 
     def insert(self, value, index):
         '''
@@ -144,54 +146,16 @@ class Linkedlist():
             curr.next = prev
             return head
 
-        
-    def print(self):
-
-        if self.head == None:
-            return
-
-        curr = self.head
-        while curr != None:
-            print(curr.data, " --> ", end ="")
-            curr = curr.next
-        print("None")
-
-    def printRecurse(self):
-        self.printrecursive(self.head)
-        print("None")
-
-    def printrecursive(self, curr):
-        if curr == None:
-            return 
-        else:
-            print(curr.data, "->", end = " ")
-            self.printrecursive(curr.next)
-        
-    # def printrecursive(self, curr= Node(-1)):                   
-
-    #     # (I am assuming that no Node will have a value of -1, 
-    #     # then only this logic works.This is only for the first fun call)
-    #     if curr != None and curr.data == -1:  
-    #         curr = self.head
-    #     if curr == None:
-    #         print("None")
-    #         return
-    #     else:
-    #         print(curr.data, " -> ", end = "")
-    #         self.printrecursive(curr.next)
-
-
-
 
 result = Linkedlist()
+
 result.insert(10,0)
 result.insert(15,3)
 result.insertAtEnd(23)
 result.insertInSortedList(50)
-result.printRecurse()
-result.recursiveReverse()
-result.printRecurse()
-# result.printrecursive()
+printRecursive(result.getHead())
+head = result.recursiveReverse()
+printRecursive(head)
 
 
 
