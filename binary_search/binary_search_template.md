@@ -1,7 +1,7 @@
 # Binary Search Template
 
 ## Template 1
-
+```shell
 l = 0
 r = n 
 while l <= r:
@@ -14,5 +14,6 @@ while l <= r:
         l = m + 1
 
 return -1
+```
 
 ## Template 2
